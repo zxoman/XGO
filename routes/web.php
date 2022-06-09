@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\authController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProdactController;
+use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,27 +18,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/home', function () {
-    return view('welcome');
-});
-Route::get('/admin', function () {
-    return view('welcome');
-});
-Route::get('/login', function () {
-    return view('welcome');
-});
-Route::get('/sginup', function () {
-    return view('welcome');
-});
-Route::get('/search', function () {
-    return view('welcome');
-});
-Route::get('/prodact', function () {
-    return view('welcome');
-});
-Route::get('/prodact', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class,'index']);
+
+Route::get('/home', [HomeController::class,'index']);
+
+Route::get('/login', [AuthController::class,'login']);
+
+Route::get('/signup', [AuthController::class,'signup']);
+
+Route::get('/search', [SearchController::class,'index']);
+
+Route::get('/prodact/{id}', [ProdactController::class,'index']);
+
+Route::get('/admin', [AdminController::class,'login_for_admin']);
+
+Route::get('/admin/create', [AdminController::class,'create_prodact']);
+
+Route::get('/admin/change', [AdminController::class,'change_admin_information']);
+
+Route::get('/admin/orders', [AdminController::class,'orders']);
