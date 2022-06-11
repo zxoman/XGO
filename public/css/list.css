@@ -1,0 +1,29 @@
+body{
+    margin: 0;
+}
+.prodacts{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-gap: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.prodact{
+    display: grid;
+    grid-template-rows: 200px;
+    grid-template-columns: 1fr;
+    border: 1px solid #f5f5f5;
+    
+}
+.prodact-image{
+    width: 100%;
+}
+.text{
+    text-align: center;
+    color: burlywood;
+}
+.prodact-options{
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.774);
+    /* display:grid; */
+}
