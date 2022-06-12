@@ -22,9 +22,11 @@ Route::get('/', [HomeController::class,'index']);
 
 Route::get('/home', [HomeController::class,'index']);
 
-Route::get('/login', [AuthController::class,'login']);
+Route::get('/login', [AuthController::class,'index']);
 
-Route::get('/signup', [AuthController::class,'signup']);
+Route::get('/signup', [AuthController::class,'index']);
+
+Route::get('/auth', [AuthController::class,'index']);
 
 Route::get('/search', [SearchController::class,'index']);
 
@@ -37,3 +39,7 @@ Route::get('/admin/create', [AdminController::class,'create_prodact']);
 Route::get('/admin/change', [AdminController::class,'change_admin_information']);
 
 Route::get('/admin/orders', [AdminController::class,'orders']);
+
+Route::get('/like', [AdminController::class,'index']);
+
+Route::get('/cart', [AdminController::class,'index']);
