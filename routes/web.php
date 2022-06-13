@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\authController;
+use App\Http\Controllers\cartController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\likeController;
 use App\Http\Controllers\ProdactController;
 use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Route;
@@ -34,12 +36,12 @@ Route::get('/prodact/{id}', [ProdactController::class,'index']);
 
 Route::get('/admin', [AdminController::class,'login_for_admin']);
 
-Route::get('/admin/create', [AdminController::class,'create_prodact']);
+Route::get('/create', [AdminController::class,'create_prodact']);
 
-Route::get('/admin/change', [AdminController::class,'change_admin_information']);
+Route::get('/change', [AdminController::class,'change_admin_information']);
 
-Route::get('/admin/orders', [AdminController::class,'orders']);
+Route::get('/orders', [AdminController::class,'orders']);
 
-Route::get('/like', [AdminController::class,'index']);
+Route::get('/like', [likeController::class,'index']);
 
-Route::get('/cart', [AdminController::class,'index']);
+Route::get('/cart', [cartController::class,'index']);

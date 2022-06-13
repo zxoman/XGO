@@ -84,7 +84,14 @@ header .logo{
 header .logo i{
     color:var(--green);
 }
-
+.but{
+    background-color: #27ae60;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    color:white;
+    margin: 1%;
+}
 header .navbar a{
     font-size: 1.7rem;
     border-radius: .5rem;

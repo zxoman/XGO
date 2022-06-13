@@ -12,7 +12,7 @@ class AdminController extends Controller
     }
     public function change_admin_information()
     {
-        return view('changeAdmin.login');
+        return view('admin.changeAdmin');
     }
     public function orders()
     {
