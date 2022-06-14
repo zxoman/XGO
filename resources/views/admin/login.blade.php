@@ -7,11 +7,23 @@
     <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
-    <form class="login">
+    <form class="login" method="POST" action="{{ route("login_admin") }}">
+        @csrf
         <h3>Login Admin</h3>
-        <input type="text" placeholder="Username">
-        <input type="password" placeholder="Password">
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
         <button>Login</button>
+        <div>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <h4 style="color:red">{{ $error }}</h4>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        </div>
     </form>
 </body>
 </html>
