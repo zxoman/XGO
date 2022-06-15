@@ -56,6 +56,8 @@ Route::middleware([NotAuthenticate::class])->group(function () {
 Route::middleware([AuthenticationAdmin::class])->group(function () {
     Route::get('/create', [AdminController::class, 'create_prodact']);
 
+    Route::post('/create', [ProdactController::class, 'create_prodact'])->name('prodact.create');
+
     Route::get('/change', [AdminController::class, 'change_admin_information_page']);
 
     Route::get('/orders', [AdminController::class, 'orders']);

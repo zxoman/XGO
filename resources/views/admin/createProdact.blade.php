@@ -43,21 +43,37 @@
 
 <body>
     <div class="form">
-        <form>
+        <form method="POST" action="{{ route('prodact.create') }}" enctype="multipart/form-data">
+            @csrf
             <div class="form-group">
                 <label>Name Prodact</label>
-                <input type="text" class="form-control">
+                <input type="text" name="name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Price Prodact</label>
+                <input type="number" name="price" class="form-control">
             </div>
             <div class="form-group">
                 <label>Details</label>
-                <textarea class="form-control" rows="3"></textarea>
+                <textarea class="form-control" name="details" rows="3"></textarea>
             </div>
             <div class="form-group">
                 <button type="button" onclick="$('#input_file').click()" class="file-but btn btn-primary">Select Image</button>
-                <input type="file" id="input_file">
+                <input name="file" type="file" id="input_file">
             </div>
             <div class="submit">
                 <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            <div>
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <h4 style="color:red">{{ $error }}</h4>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
             </div>
         </form>
     </div>
