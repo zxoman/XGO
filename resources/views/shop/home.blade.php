@@ -16,11 +16,9 @@
     <section class="dishes" id="dishes">
         <h3 class="sub-heading"> Prodacts </h3>
         <div class="box-container">
-            <x-prodact text="food" image="prodact.jpg" price="20.99"/>
-            <x-prodact text="food" image="prodact.jpg" price="20.99"/>
-            <x-prodact text="food" image="prodact.jpg" price="20.99"/>
-            <x-prodact text="food" image="prodact.jpg" price="20.99"/>
-
+            @foreach ($prodacts as $prodact)
+                <x-prodact text="{{ $prodact['name'] }}" id="{{ $prodact['id'] }}" image="{{ asset($prodact['image']) }}" price="{{ $prodact['price'] }}"/>
+            @endforeach
         </div>
     </section>
 @endsection

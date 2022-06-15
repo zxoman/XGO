@@ -9,7 +9,8 @@ class ProdactController extends Controller
 {
     public function index($id)
     {
-        return view('shop.prodact');
+        $prodact = prodact::where('id',$id)->first();
+        return view('shop.prodact',["prodact" => $prodact]);
     }
     public function create_prodact(Request $request)
     {
@@ -20,7 +21,7 @@ class ProdactController extends Controller
             'file' => 'required|mimes:png,jpg,jpeg|max:2048',
         ]);
         $fileName = time().'_'.$request->file->getClientOriginalName();
-        $filePath = $request->file('file')->storeAs('prodacts', $fileName, 'public');
+        $filePath = "/storage/".$request->file('file')->storeAs('prodacts', $fileName, 'public');
         prodact::create([
             'name' => $request->name,
             'price' => $request->price,

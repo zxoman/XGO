@@ -9,13 +9,15 @@ class prodact extends Component
     public $text;
     public $image;
     public $price;
+    public $id;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($text, $image, $price)
+    public function __construct($text, $image, $price, $id)
     {
+        $this->id = $id;
         $this->text = $text;
         $this->image = $image;
         $this->price = $price;
