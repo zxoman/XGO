@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\order;
 use App\Models\prodact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProdactController extends Controller
 {
@@ -29,5 +31,14 @@ class ProdactController extends Controller
             'image' => $filePath
         ]);
         return back()->withErrors(['msg'=>'prodact is added']);
+    }
+    public function create_order(Request $request)
+    {
+        order::create([
+            'id_prodact' => $request->id_prodact,
+            'id_user' => Auth::id()
+        ]);
+        return back()->withErrors(['msg'=>'The product will reach you soon']);
+
     }
 }

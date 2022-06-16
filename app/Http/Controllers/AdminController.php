@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\order;
+use App\Models\prodact;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,7 +33,14 @@ class AdminController extends Controller
     }
     public function orders()
     {
-        return view('admin.orders');
+        $orders = order::all();
+        $data = [];
+        foreach ($orders as $order) {
+            $prodact = prodact::where('id',$order['id_prodact'])->first();
+            $user = User::where('id',$order['id_user'])->first();
+            $data[] = ['user' => $user, 'prodact' => $prodact, 'date' => $order['created_at']];
+        }
+        return view('admin.orders',["orders" => $data]);
     }
     public function create_prodact()
     {

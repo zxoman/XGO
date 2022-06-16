@@ -36,6 +36,9 @@ Route::middleware([Authenticate::class])->group(function () {
     Route::get('/like', [likeController::class, 'index']);
 
     Route::get('/cart', [cartController::class, 'index']);
+
+    Route::post('/create_oreder', [ProdactController::class, 'create_order'])->name('create.order');
+
 });
 Route::middleware([NotAuthenticate::class])->group(function () {
 

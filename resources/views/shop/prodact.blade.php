@@ -8,6 +8,21 @@
     <br>
     <h2>Details</h2>
     <h3>{{ $prodact['details'] }}</h3>
-    <button class="but">Buy Now</button>
+    <form method="post" action="{{ route('create.order') }}">
+        @csrf
+        <input type="hidden" name="id_prodact" value="{{ $prodact['id'] }}">
+        <button class="but">Buy Now</button>
+        <div>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <h4 style="color:red">{{ $error }}</h4>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+        </div>
+    </form>
 </section>
 @endsection

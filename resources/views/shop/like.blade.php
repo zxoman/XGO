@@ -21,7 +21,6 @@
             <x-prodact text="food" image="prodact.jpg" price="20.99"/>
             <x-prodact text="food" image="prodact.jpg" price="20.99"/>
             <x-prodact text="food" image="prodact.jpg" price="20.99"/>
-
         </div>
     </section>
 @endsection
