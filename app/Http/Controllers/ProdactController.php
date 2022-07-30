@@ -39,6 +39,5 @@ class ProdactController extends Controller
             'id_user' => Auth::id()
         ]);
         return back()->withErrors(['msg'=>'The product will reach you soon']);
-
     }
 }

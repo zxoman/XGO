@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\cartController;
+use App\Http\Middleware\Authenticate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +18,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+Route::middleware([Authenticate::class])->group(function () {
+
+Route::post('/add_cart', [cartController::class,'add_cart'])->name('add.cart');
+
 });

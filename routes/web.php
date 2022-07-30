@@ -39,6 +39,8 @@ Route::middleware([Authenticate::class])->group(function () {
 
     Route::post('/create_oreder', [ProdactController::class, 'create_order'])->name('create.order');
 
+
+
 });
 Route::middleware([NotAuthenticate::class])->group(function () {
 
