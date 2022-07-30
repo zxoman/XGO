@@ -39,6 +39,9 @@ Route::middleware([Authenticate::class])->group(function () {
 
     Route::post('/create_oreder', [ProdactController::class, 'create_order'])->name('create.order');
 
+    Route::post('/add_cart', [cartController::class,'add_cart'])->name('add.cart');
+
+    Route::post('/remove_cart', [cartController::class,'remove_cart'])->name('remove.cart');
 
 
 });

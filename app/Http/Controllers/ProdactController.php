@@ -40,4 +40,5 @@ class ProdactController extends Controller
         ]);
         return back()->withErrors(['msg'=>'The product will reach you soon']);
     }
+
 }

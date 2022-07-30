@@ -5,5 +5,10 @@
     <h3>{{$text}}</h3>
     <span>${{ $price }}</span>
     <br>
-    <a href="#" class="btn">add to cart</a>
+    @if ($cart)
+        <button data-id="{{ $id }}" class="btn remove_cart">remove from cart</button>
+    @else
+        <button data-id="{{ $id }}" class="btn add_cart">add to cart</button>
+    @endif
+    
 </div>
