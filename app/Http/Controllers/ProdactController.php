@@ -28,7 +28,7 @@ class ProdactController extends Controller
             'name' => $request->name,
             'price' => $request->price,
             'details' => $request->details,
-            'image' => $filePath
+            'image' => "/image/".$fileName
         ]);
         return back()->withErrors(['msg'=>'prodact is added']);
     }

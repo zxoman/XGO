@@ -43,6 +43,10 @@ Route::middleware([Authenticate::class])->group(function () {
 
     Route::post('/remove_cart', [cartController::class,'remove_cart'])->name('remove.cart');
 
+    Route::post('/add_like', [likeController::class,'add_like'])->name('add.like');
+
+    Route::post('/remove_like', [likeController::class,'remove_like'])->name('remove.like');
+
 
 });
 Route::middleware([NotAuthenticate::class])->group(function () {

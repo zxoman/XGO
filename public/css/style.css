@@ -253,6 +253,11 @@ header .icons #menu-bars{
     color:var(--black);
 }
 
+.gw{
+    background: var(--green) !important;
+    color:#fff !important;
+}
+
 .dishes .box-container .box .fa-heart:hover,
 .dishes .box-container .box .fa-eye:hover{
     background: var(--green);

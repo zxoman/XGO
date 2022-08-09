@@ -36,5 +36,44 @@ function remove_cart() {
     });
 }
 
+
+function add_like() {
+    var id = $(this).data("id");
+    var el = $(this);
+    $.ajax({
+        url: "/add_like",
+        method: "POST",
+        data: {
+            id_prodact: id,
+            _token: $('meta[name="csrf-token"]').attr('content')
+        },
+        success: function (data) {
+            el.removeClass("add_like");
+            el.addClass("remove_like");
+            el.addClass("gw");
+            el.click(remove_like);
+        },
+    });
+}
+function remove_like() {
+    var id = $(this).data("id");
+    var el = $(this);
+    $.ajax({
+        url: "/remove_like",
+        method: "POST",
+        data: {
+            id_prodact: id,
+            _token: $('meta[name="csrf-token"]').attr('content')
+        },
+        success: function (data) {
+            el.removeClass("remove_like");
+            el.removeClass("gw");
+            el.addClass("add_like");
+            el.click(add_like);
+        },
+    });
+}
 $(".add_cart").click(add_cart);
 $(".remove_cart").click(remove_cart);
+$(".add_like").click(add_like);
+$(".remove_like").click(remove_like);
