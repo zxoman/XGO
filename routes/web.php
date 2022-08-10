@@ -29,7 +29,7 @@ Route::middleware([Authenticate::class])->group(function () {
 
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-    Route::get('/search', [SearchController::class, 'index']);
+    Route::get('/search', [SearchController::class, 'index'])->name('search');
 
     Route::get('/prodact/{id}', [ProdactController::class, 'index']);
 
