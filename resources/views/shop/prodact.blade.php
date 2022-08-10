@@ -1,4 +1,5 @@
 @extends('layout.layout')
+@section('admin',auth()->user()->abilities == "admin")
 @section('content')
 <section class="dishes" style="margin: 5%; text-align:center;" id="dishes">
     <img src="{{ asset($prodact['image']) }}">

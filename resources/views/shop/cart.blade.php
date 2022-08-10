@@ -1,6 +1,6 @@
 @extends('layout.layout')
+@section('admin',auth()->user()->abilities == "admin")
 @section('content')
-
     <section class="dishes" id="dishes">
         <h1 class="heading"> Cart </h1>
         <div class="box-container">

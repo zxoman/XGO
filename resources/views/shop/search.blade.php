@@ -1,4 +1,5 @@
 @extends('layout.layout')
+@section('admin',auth()->user()->abilities == "admin")
 @section('content')
     <section class="dishes" id="dishes">
         <h3 class="sub-heading"> our dishes </h3>

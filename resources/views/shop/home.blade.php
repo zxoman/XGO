@@ -1,4 +1,5 @@
 @extends('layout.layout')
+@section('admin',auth()->user()->abilities == "admin")
 @section('content')
     <section class="home" id="home">
         <div class="swiper-container home-slider">
